@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<body>
+<br/>
+<br/>
+{% block content %}
+<br/>
+<br/>
+<br/>
+<div class="container">
+<h2>Items In Checkout but Not Purchased</h2>
+<div class="row">
+{% for order in orders_n_purchased %}
+    <div class="col-md-4 col-sm-12 col-lg-3 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"> {{ order.item.name }}</h5>
+            </div>
+    <div class="card-body">
+        <h5 class="card-title"> Quantity x {{ order.quantity }}</h5>
+    </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+<div class="container">
+
+<h2>Items purchased</h2>
+    <div class="row">
+{% for item, quantity in order_purchased.items %}
+        <div class="col-md-4 col-sm-12 col-lg-3 m-1">
+            <div class="card" style='width:100%; height:300px;'>
+            <div class="card-body">
+                <h5 class="card-title"> {{ item }}</h5>
+            </div>
+    <div class="card-body">
+        <h5 class="card-title"> Quantity x {{ quantity }}</h5>
+    </div>
+        </div>
+        </div>
+{% endfor %}
+    </div>
+    </div>
+
+{% endblock %}
+</body>
+</html>
